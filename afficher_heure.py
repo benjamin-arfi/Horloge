@@ -35,8 +35,9 @@ def afficher_heure(tupple):
     if m > 59 :
          h+=1
          m = 0
-    heure_actuelle=(h,m,s)
+    heure_actuelle=f"{h}:{m}:{s}"
     print(heure_actuelle)
+    heure_actuelle = (h,m,s)
     regler_alarme(reveil)
     afficher_heure(heure_actuelle)   
 def afficher_heureanglais(tupple):
@@ -47,6 +48,7 @@ def afficher_heureanglais(tupple):
     h = tupple[0]
     m = tupple[1]
     s = tupple[2]
+
     s+=1
     1<h<24
     0<m<60
@@ -57,12 +59,13 @@ def afficher_heureanglais(tupple):
     elif m > 59:
          h+=1
          m = 0
-    elif 0<h<12:
-        print(str(h) + "AM")
+    elif 1<=h<12:
+        suffix = 'AM'
     elif 12<=h<24:
-        print(str(h) +"PM")
-    heure_actuelle=(h,m,s)
+        suffix = 'PM'
+    heure_actuelle=f"{h}:{m}:{s} {suffix}" 
     print(heure_actuelle)
+    heure_actuelle = (h,m,s)
     regler_alarme(reveil)
     afficher_heureanglais(heure_actuelle)
 def rentre_heure():
